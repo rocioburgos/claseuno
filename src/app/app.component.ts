@@ -9,18 +9,15 @@ import { Usuario} from './clases/usuario';
 export class AppComponent {
   title = 'claseUno';
 
-  public edadUno:number;
-  public edadDos:number;
-  public sumaEdades:number;
-  public promedioEdades:number;
+  public edadUno?:number;
+  public edadDos?:number;
+  public sumaEdades?:number;
+  public promedioEdades?:number;
   public miUsuario:Usuario;
 
 
   constructor(){
-    this.edadUno=0;
-    this.edadDos=0;
-    this.sumaEdades=0;
-    this.promedioEdades= 0;
+
     this.miUsuario= new Usuario("Rocio","1234");
   }
 
@@ -36,15 +33,21 @@ bindeo de doble via:
 */
   public calcular(){
   console.log("como va");
+
+   
+  this.sumaEdades=0;
+  this.promedioEdades= 0;
+  this.edadUno= (this.edadUno == null)? 0 : this.edadUno;
+  this.edadDos= (this.edadDos == null)? 0 : this.edadDos;
    this.sumaEdades= this.edadUno+ this.edadDos;
 
   this.promedioEdades = this.sumaEdades/2;
   }
 
   public limpiarResultados(){
-    this.edadUno=0;
-    this.edadDos=0;
-    this.promedioEdades=0;
-    this.sumaEdades=0;
+    this.edadUno=undefined;
+    this.edadDos=undefined;
+    this.promedioEdades=undefined;
+    this.sumaEdades=undefined;
   }
 }
